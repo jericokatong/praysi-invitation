@@ -1,0 +1,6 @@
+<div class="dialog-content" (click)="closeDialog()" @zoomInOut>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <img [src]="data.imageUrl" alt="Full Image" class="full-image" />
+</div>

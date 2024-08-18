@@ -6,6 +6,8 @@ module.exports = {
       fontFamily: {
         alegreyaRegular: ["AlegreyaRegular"],
         dancingScriptRegular: ["DancingScriptRegular"],
+        robotoRegular: ["RobotoRegular"],
+        robotoSlabRegular: ["RobotoSlabRegular"],
       },
     },
   },

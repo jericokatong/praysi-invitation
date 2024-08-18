@@ -10,5 +10,32 @@
 
 @font-face {
   font-family: "DancingScriptRegular";
-  src: url("../public//fonts//DancingScript-Regular.ttf");
+  src: url("../public/fonts/DancingScript-Regular.ttf");
+}
+
+@font-face {
+  font-family: "RobotoRegular";
+  src: url("../public/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "RobotoSlabRegular";
+  src: url("../public/fonts/RobotoSlab-Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.full-screen-dialog .mat-dialog-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
 }
