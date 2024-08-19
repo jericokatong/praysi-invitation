@@ -1,6 +1,18 @@
 <section class="w-full flex flex-col justify-center items-center">
   <h1 class="font-dancingScriptRegular text-4xl mb-5">Guest Book</h1>
 
+  <!-- data -->
+  <div class="w-full">
+    @for (item of data; track $index) {
+    <div class="bg-white text-black px-6 py-3 rounded-md mb-3">
+      <h1 class="mb-1">{{ item.title }}</h1>
+      <hr />
+      <p class="mt-1 mb-1">{{ item.description }}</p>
+      <p class="font-light">{{ formatDate(item.createdAt) }}</p>
+    </div>
+    }
+  </div>
+
   <div class="bg-white w-full flex flex-col px-6 py-3 rounded-md">
     <form [formGroup]="applyForm" (submit)="submitGuestBook()">
       <input
@@ -18,8 +30,13 @@
         placeholder="Description"
       ></textarea>
 
-      <button class="text-black bg-slate-400 p-2 rounded-md" type="submit">
-        Send
+      <button
+        class="text-black bg-slate-400 p-2 rounded-md"
+        type="submit"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="!isLoading">Send</span>
+        <span *ngIf="isLoading">Loading...</span>
       </button>
     </form>
   </div>
