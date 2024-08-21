@@ -26,7 +26,7 @@ export class GuestBookComponent {
 
   fetchData() {
     this.http
-      .get('https://praysi-invitation-backend-pxp4.vercel.app/guest-books')
+      .get('https://praysi-invitation-backend.vercel.app/guest-books')
       .subscribe((response: any) => {
         console.log('ini respon ui: ', response);
         this.data = response;
@@ -39,19 +39,19 @@ export class GuestBookComponent {
       `title: ${this.applyForm.value.title}\ndescription: ${this.applyForm.value.description}`
     );
     console.log('ini adalah object: ', this.applyForm.value);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      // Header lain jika diperlukan
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   // Header lain jika diperlukan
+    // });
+    const headers = {
+      Authorization: 'Bearer my-token',
+      'My-Custom-Header': 'foobar',
+    };
     this.http
-      .post(
-        'https://praysi-invitation-backend-pxp4.vercel.app/guest-books',
-        {
-          title: this.applyForm.value.title,
-          description: this.applyForm.value.description,
-        },
-        { headers }
-      )
+      .post('https://praysi-invitation-backend.vercel.app/guest-books', {
+        title: this.applyForm.value.title,
+        description: this.applyForm.value.description,
+      })
       .subscribe({
         next: (response: any) => {
           this.applyForm.reset();
